@@ -6,12 +6,9 @@ This project uses BERT embeddings combined with demographic features to predict 
 
 ```
 ├── data/                      # Raw and processed data
-│   ├── response.tsv           # Survey responses (473 respondents × 598 tweet ratings)
 │   ├── id_tweet.tsv           # Original tweets (598 tweets)
-│   ├── train_data_full.csv    # Processed training data (7,002 rows)
-│   ├── test_data_full.csv     # Processed test data (2,424 rows)
-│   ├── train_data.csv         # Simplified training data (gender + tweet + value)
-│   └── test_data.csv          # Simplified test data
+│   ├── train_data.csv         # Training data (gender + tweet + value)
+│   └── test_data.csv          # Test data
 │
 ├── final/                     # Final scripts and results
 │   ├── create_data.ipynb      # Data preparation pipeline
@@ -23,9 +20,9 @@ This project uses BERT embeddings combined with demographic features to predict 
 
 ## Data Pipeline
 
-1. **Raw Data**: Survey responses (`response.tsv`) + Tweet texts (`id_tweet.tsv`)
+1. **Raw Data**: Tweet texts (`id_tweet.tsv`) + survey responses (not included in repo)
 2. **Processing**: `create_data.ipynb` unpivots, cleans, and joins the data
-3. **Output**: `train_data_full.csv` and `test_data_full.csv`
+3. **Output**: `train_data.csv` and `test_data.csv`
 
 ## Model Architecture
 
@@ -65,4 +62,5 @@ numpy
 
 1. Run `create_data.ipynb` to prepare the data
 2. Run `main.ipynb` to train and evaluate the model
+
 
